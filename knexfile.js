@@ -1,7 +1,5 @@
 const { database, dbName, dbUser  } = require('./config');
 
-console.log(database)
-
 module.exports = {
 
   development: {
