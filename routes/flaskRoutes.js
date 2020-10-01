@@ -5,12 +5,17 @@ const status = require('../data/models/flaskModel')
 
 router.post("/status", (req, res) => {
     const data = req.body;
-    status.add(data).then(saved => {
-        res.status(201).json(`Successfully created a new dataset at id ${saved}!`)
-    }).catch(err => {
-        console.log(err)
-        res.status(401).json(err)
-    })
+
+    if(data.delta != null) {
+        status.add(data).then(saved => {
+            res.status(201).json(`Successfully created a new dataset at id ${saved}!`)
+        }).catch(err => {
+            console.log(err)
+            res.status(401).json(err)
+        })
+    } else {
+        console.log(data)
+    }
 })
 
 router.get('/status', (req, res) => {
