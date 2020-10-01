@@ -1,6 +1,6 @@
 const { database, dbName, dbUser  } = require('./config');
 
-console.log(database_url)
+console.log(database)
 
 module.exports = {
 
@@ -19,9 +19,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: {
-      database: database_url
-    },
+    connection: database,
     migrations: {
       directory: './data/migrations'
     },
