@@ -15,6 +15,7 @@ exports.up = function(knex) {
     tbl.float("quantity")
     tbl.float("mark")
     tbl.string("strike_str")
+    tbl.string("exp_date")
     tbl.string("position_type")
     tbl.integer("order_id")
     tbl.timestamp("time_run").defaultTo(knex.fn.now(6))
