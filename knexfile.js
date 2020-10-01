@@ -1,4 +1,6 @@
-const { database_url, dbName, dbUser  } = require('./config');
+const { database, dbName, dbUser  } = require('./config');
+
+console.log(database_url)
 
 module.exports = {
 
