@@ -15,11 +15,12 @@ exports.up = function(knex) {
     tbl.float("quantity")
     tbl.float("mark")
     tbl.string("strike_str")
+    tbl.string("position_type")
     tbl.integer("order_id")
     tbl.timestamp("time_run").defaultTo(knex.fn.now(6))
   })
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists("users")
+    return knex.schema.dropTableIfExists("users").dropTableIfExists("status")
 };
