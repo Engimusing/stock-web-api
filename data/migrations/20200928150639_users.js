@@ -18,7 +18,7 @@ exports.up = function(knex) {
     tbl.string("exp_date")
     tbl.string("position_type")
     tbl.integer("order_id")
-    tbl.timestamp("time_run").defaultTo(knex.fn.now(6))
+    tbl.string("time_run")
   })
 };
 

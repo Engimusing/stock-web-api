@@ -3,11 +3,9 @@ const { database, dbName, dbUser  } = require('./config');
 module.exports = {
 
   development: {
-    client: 'pg',
-    connection: {
-      database: dbName,
-      user: dbUser
-    },
+    client: 'sqlite3',
+    useNullAsDefault: true,
+    connection: './data/stock_db.db3',
     migrations: {
       directory: './data/migrations'
     },
