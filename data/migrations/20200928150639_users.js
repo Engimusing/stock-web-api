@@ -7,18 +7,11 @@ exports.up = function(knex) {
       tbl.text("name")
   }).createTable("status", tbl => {
     tbl.increments("id")
-    tbl.string("ticker")
-    tbl.float("delta")
-    tbl.float("profit")
-    tbl.float("current_price")
-    tbl.float("orig_price")
-    tbl.float("quantity")
-    tbl.float("mark")
-    tbl.string("strike_str")
-    tbl.string("exp_date")
-    tbl.string("position_type")
-    tbl.integer("order_id")
-    tbl.string("time_run")
+    tbl.string('symbol_dict')
+    tbl.string('ticker_list')
+    tbl.string('filled_order_dict')
+    tbl.string('working_order_dict')
+    tbl.timestamp('time_run').defaultTo(knex.fn.now())
   })
 };
 
