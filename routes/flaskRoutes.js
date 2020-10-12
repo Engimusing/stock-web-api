@@ -25,4 +25,18 @@ router.get('/status', (req, res) => {
     })
 })
 
+router.get('/status/:time', (req, res) => {    
+    const { time } = req.params
+    
+    status.getByTimestamp(time).then(data => {
+        if(!data) {
+            res.status(404).json("Status with that timestamp not found.")
+        }
+        
+        res.status(200).json(data)
+    }).catch(err => {
+        res.status(404).json("Status with that timestamp not found.")
+    })
+})
+
 module.exports = router;
