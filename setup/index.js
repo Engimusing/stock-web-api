@@ -5,5 +5,5 @@ const cors = require("cors")
 module.exports = server => {
     server.use(helmet());
     server.use(cors());
-    server.use(express.json());
+    server.use(express.json({limit:"1000kb"}));
 };
