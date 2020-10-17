@@ -3,8 +3,7 @@ const db = require('../dbConfig');
 
 module.exports = {
     add,
-    getAll,
-    getByTimestamp
+    getAll
 }
 
 async function add(data) {
@@ -13,11 +12,7 @@ async function add(data) {
 }
 
 async function getAll() {
-    const dataset = await db("status");
+    const [dataset] = await db("status").orderBy('time_run', 'desc').limit(1)
     return dataset;
 }
 
-async function getByTimestamp(timestamp) {
-    const [dataset] = await db("status").where({ 'time_run': timestamp })
-    return dataset;
-}
